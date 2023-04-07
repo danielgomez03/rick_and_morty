@@ -1,10 +1,12 @@
 import { ADD_FAV, REMOVE_FAV } from "./actions/types";
+
 const initialState = {
   data: [],
   myFavorites: [],
 };
 
-export default function rootReducer(state = initialState, { type, payload }) {
+const rootReducer = (state = initialState, { type, payload }) => {
+  
   switch (type) {
     case ADD_FAV:
       return {
@@ -21,4 +23,6 @@ export default function rootReducer(state = initialState, { type, payload }) {
     default:
       return state;
   }
-}
+};
+
+export default rootReducer;
