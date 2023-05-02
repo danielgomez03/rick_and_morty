@@ -1,6 +1,5 @@
 .Cards{
-    border: 2px solid green;
     display: flex;
     background-color: bisque;
-
+    flex-wrap: wrap;
 }

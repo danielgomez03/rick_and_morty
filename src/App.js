@@ -1,14 +1,14 @@
-import './App.css';
-import Cards from './components/Cards';
-import Nav from './components/Nav';
 import React, { useState, useEffect  } from 'react';
 import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import About from './components/About';
-import Detail from './components/Detail';
-import NotFound from './components/NotFound';
+import './App.css';
+import Cards from './components/Cards/Cards';
+import Nav from './components/Nav/Nav';
+import About from './components/About/About';
+import Detail from './components/Detail/Detail.jsx';
+import NotFound from './components/NotFound/NotFound';
 import Form from './components/Form';
-import Favorites from './components/Favorites';
+import Favorites from './components/Favorites/Favorites';
 
 
 
@@ -46,7 +46,7 @@ function App() {
          if (data.name) {
             let exist =  characters.find((ch)=>ch.id === data.id);
             if(exist) {
-               alert("Ya existe");
+               alert("Already exist");
             } else{
                setCharacters((oldChars) => [...oldChars, data]);
             }
@@ -65,7 +65,6 @@ function App() {
       <div className='App'>
 
          {location.pathname === "/" ? null: <Nav logout={logout}/> }
-           
          
          <Routes>
             <Route path="/" element={<Form login={login}/>}></Route>
@@ -76,7 +75,7 @@ function App() {
 
             <Route path="/detail/:id" element={<Detail/>}> </Route>
 
-            <Route path="/favorites" element={<Favorites/>}> </Route>
+            <Route path="/favorites" element={<Favorites onClose={onClose}/>}> </Route> 
             
             <Route path='*' element={<NotFound />}/>
 

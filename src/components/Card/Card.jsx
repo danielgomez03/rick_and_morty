@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addFav, removeFav } from "../redux/actions/actions";
+import { addFav, removeFav } from "../../redux/actions/actions";
 
- const Card = (props) => {
+const Card = (props) => {
 
    const dispatch = useDispatch();
    const [isFav, setIsFav] = useState(false);
@@ -53,10 +53,10 @@ import { addFav, removeFav } from "../redux/actions/actions";
 }
 
 const mapDispatchToProps = (dispatch) => {
-     return{
+   return{
       addFav: (ch) => dispatch(addFav(ch)),
       removeFav: (id) => dispatch(removeFav(id)),
-     } 
+      } 
 };
 
 const  mapStateToProps = (state) => {

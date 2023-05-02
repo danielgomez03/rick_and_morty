@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import style from "../styles/Form.module.css";
 
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 const regexPassword =
@@ -42,7 +43,7 @@ const Form = ({Login}) => {
             });
 
             Login(userData)
-            return alert("OKKKKKKK")
+            return alert("OK")
             }
         return alert("Error")
         };
@@ -50,20 +51,20 @@ const Form = ({Login}) => {
     const validate = (userData) => {
         const errors = {};
         if (!userData.email) {
-          errors.email = "Debe haber un email";
+          errors.email = "Needs to be an email";
         } else if (!userData.password) {
-          errors.password = "Debe haber un password";
+          errors.password = "Needs to be a password";
         } else if (!regexEmail.test(userData.email)) {
-          errors.email = "Debe ser un email válido";
+          errors.email = "email not-valid";
         } else if (!regexPassword.test(userData.password)) {
-          errors.password = "Debe ser un password válido";
+          errors.password = "password valid";
         }
         return errors;
       }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className={style.container}>
+            <form className={style.form} onSubmit={handleSubmit}>
                 <label>Email: </label>
                 <input name="email" value={userData.email} onChange={handleChange} placeholder=""></input>
                 <p className="danger">{errors.email}</p>

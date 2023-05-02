@@ -4,6 +4,7 @@
     padding: 20px;
     display: flex;
     justify-content: space-around;
+    background-color: #298e46;
 }
 
 .search{

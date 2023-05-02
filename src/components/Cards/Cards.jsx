@@ -1,7 +1,7 @@
 import React from "react";
-import Card from './Card';
 import "./Cards.css"
-import SearchBar from "./SearchBar";
+import Card from "../Card/Card";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Cards({onClose,characters, onSearch}) {
    return(

@@ -1,9 +1,11 @@
 import React from 'react'
+import "./About.css"
+
 
 const About = () => {
   return(
-    <div>
-      <h1>Hola soy fiel como un perro</h1>
+    <div className="About">
+      <h1>HELLO FRIEND</h1>
     </div>
   );
 };
