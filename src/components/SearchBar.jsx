@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SearchBar.module.css"
+import style from "../styles/SearchBar.module.css"
 
 
 const SearchBar = ({onSearch}) => {
@@ -11,7 +11,7 @@ const SearchBar = ({onSearch}) => {
    };
 
    return (
-      <div className="SearchBar" id="Search">
+      <div className={style.searchBar}>
 
          <input onChange={handleChange} type='search' />
          <button onClick={()=>onSearch(id)}>put in</button>

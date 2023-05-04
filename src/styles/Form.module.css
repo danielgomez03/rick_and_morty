@@ -7,7 +7,7 @@ input{
     height: 20vh;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(246, 102, 24, 0.26);
+    background-color: rgb(138, 48, 0);
 }
 
 .container{
@@ -20,7 +20,7 @@ input{
 }
 
 label{
-    color: rgb(22, 252, 233);
+    color: #FFE7D3;
     font-size: 22px;
 }
 input{
@@ -45,3 +45,8 @@ button:hover{
     background-color: rgb(21, 2, 37);
     color:  rgb(145, 95, 185);
 }
+
+.danger{
+    color: #FF878E;
+    font-size: 20px;
+};

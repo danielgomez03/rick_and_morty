@@ -2,13 +2,13 @@ import React, { useState, useEffect  } from 'react';
 import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
-import Cards from './components/Cards/Cards';
-import Nav from './components/Nav/Nav';
-import About from './components/About/About';
-import Detail from './components/Detail/Detail.jsx';
-import NotFound from './components/NotFound/NotFound';
+import Cards from './components/Cards';
+import Nav from './components/Nav';
+import About from './components/About';
+import Detail from './components/Detail';
+import NotFound from './components/NotFound';
 import Form from './components/Form';
-import Favorites from './components/Favorites/Favorites';
+import Favorites from './components/Favorites';
 
 
 
@@ -16,9 +16,9 @@ import Favorites from './components/Favorites/Favorites';
 function App() {
 
    const navigate = useNavigate();
-   const location = useLocation()
-   const [access, setAccess] = useState(false);
+   const location = useLocation();
 
+   const [access, setAccess] = React.useState(false);
    const EMAIL = "Danigomez.serme@gmail.com";
    const PASSWORD =  "@Qwerty1";
 
@@ -27,7 +27,7 @@ function App() {
          setAccess(true);
          navigate('/home');
       }
-   };
+   }
 
    useEffect(() => {
       !access && navigate('/');
@@ -38,7 +38,7 @@ function App() {
       navigate("/");
    };
 
-   
+
    const [characters, setCharacters] = React.useState([]);
    
    function onSearch(id) {
@@ -64,10 +64,11 @@ function App() {
    return (
       <div className='App'>
 
-         {location.pathname === "/" ? null: <Nav logout={logout}/> }
-         
+            {location.pathname === "/" ? null: <Nav logout={logout}/> }
+
          <Routes>
-            <Route path="/" element={<Form login={login}/>}></Route>
+
+            <Route path='/' element= {<Form login={login}/>}></Route>
 
             <Route path="/home" element={<Cards onClose={onClose} onSearch={onSearch} characters={characters}></Cards>}> </Route> 
 
@@ -76,7 +77,7 @@ function App() {
             <Route path="/detail/:id" element={<Detail/>}> </Route>
 
             <Route path="/favorites" element={<Favorites onClose={onClose}/>}> </Route> 
-            
+
             <Route path='*' element={<NotFound />}/>
 
          </Routes>

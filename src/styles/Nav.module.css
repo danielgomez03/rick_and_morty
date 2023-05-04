@@ -1,5 +1,5 @@
 
-.Nav{
+.nav{
     border: 2px solid black;
     padding: 20px;
     display: flex;
@@ -7,10 +7,6 @@
     background-color: #298e46;
 }
 
-.search{
-    display: flex;
-    text-align: right;
-}
 
 .button {
   appearance: none;

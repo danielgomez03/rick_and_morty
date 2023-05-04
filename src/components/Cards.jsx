@@ -1,13 +1,13 @@
 import React from "react";
-import "./Cards.css"
-import Card from "../Card/Card";
-import SearchBar from "../SearchBar/SearchBar";
+import style from "../styles/Cards.module.css"
+import Card from "./Card";
+import SearchBar from "./SearchBar";
 
 export default function Cards({onClose,characters, onSearch}) {
    return(
       <div>
             <SearchBar  onSearch={onSearch} />
-         <div className="Cards">
+         <div className={style.cards}>
             {characters.map((character,index) => {
             return( 
                <Card key={character.id} 

@@ -1,10 +1,10 @@
 import React from 'react'
-import "./About.css"
+import style from "../styles/About.module.css"
 
 
 const About = () => {
   return(
-    <div className="About">
+    <div className={style.about}>
       <h1>HELLO FRIEND</h1>
     </div>
   );

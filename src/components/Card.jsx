@@ -1,10 +1,10 @@
 import React from "react";
-import "./Card.css"
+import style from "../styles/Card.module.css"
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addFav, removeFav } from "../../redux/actions/actions";
+import { addFav, removeFav } from "../redux/actions/actions";
 
 const Card = (props) => {
 
@@ -31,8 +31,8 @@ const Card = (props) => {
 
 
    return (
-      <div className="Card">
-         <button onClick={()=>props.onClose(props.id)}>X</button>
+      <div className={style.card}>
+         <div className={style.head_card}>
          {
          isFav ? (
          <button onClick={handleFavorite}>❤️</button>
@@ -40,14 +40,17 @@ const Card = (props) => {
          <button onClick={handleFavorite}>🤍</button>
             )
          }
-         <Link to={`/detail/${props.id}`}>
+         </div>
+
+         <Link className={style.link} to={`/detail/${props.id}`}>
          <h2>{props.name}</h2>
          </Link>
-         {/* <h2>{props.status}</h2>
-         <h2>{props.species}</h2>
-         <h2>{props.gender}</h2> */}
-         <h2>{props.origin}</h2>
          <img class="img" src={props.image} alt={props.name} />
+         <h2>{props.species}</h2>
+         <h2>{props.gender}</h2>
+         <button onClick={()=>props.onClose(props.id)}>X</button>
+         {/* <h2>{props.status}</h2>
+         <h2>{props.origin}</h2> */}
       </div>
    );
 }
