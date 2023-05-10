@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import style from "../styles/Form.module.css";
+import title from "../assets/rick-and-morty-31013.png"
 
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,10}/;
@@ -58,6 +59,10 @@ const Form = ({login}) => {
     return(
         <div className={style.container}>
             <form className={style.form} onSubmit={handleSubmit}>
+              <div className={style.img_container}>
+              <img src={title} className={style.title} alt={"Rick&Morty"}/>
+              </div>
+                <div className={style.inputs_container}>
                 <label>Email: </label>
                 <input name="email" value={userData.email} onChange={handleChange} placeholder=""></input>
                 <p className={style.danger}>{errors.email}</p>
@@ -66,7 +71,9 @@ const Form = ({login}) => {
                 <p className={style.danger}>{errors.password}</p>
                 {Object.keys(errors).length === 0 ? (
                         <button type="submit" >Submit</button>
-                ) : null}        
+                ) : null}  
+                </div>
+      
             </form>
         </div>
     );
