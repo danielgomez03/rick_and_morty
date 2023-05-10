@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../styles/Nav.module.css"
 import title from "../assets/rick-and-morty-31013.png"
+import menuIcon from "../assets/icoBtnDropMenu.png"
 
 
 
@@ -21,19 +22,29 @@ return(
           <img src={title} className={style.logo} alt={"Rick&Morty"}/>
           </div>
 
-          <Link to="/home">
-          <button className={style.button}>Home</button>
-          </Link>
+          
 
-          <Link to="/about">
-          <button className={style.button}>About</button>
-          </Link>
+          <div className={style.dropdown}>
+            <button className={style.dropbtn}>
+            <img src={menuIcon} className={style.BurgerIcon} alt={"paila"}/>
+            </button>
+            <div className={style.dropdownContent}>
+              <Link to="/home">
+              <button className={style.dropDButton}>Home</button>
+              </Link>
 
-          <Link to="/favorites">
-          <button className={style.button}>Favorites</button>
-          </Link>
+              <Link to="/about">
+              <button className={style.dropDButton}>About</button>
+              </Link>
 
-        <button onClick={logout}>LogOut</button>
+              <Link to="/favorites">
+              <button className={style.dropDButton}>Favorites</button>
+              </Link>
+              <button className={style.dropDButton} onClick={logout}>LogOut</button>
+            </div>
+            
+          </div>
+        
 
   </div>
 );
