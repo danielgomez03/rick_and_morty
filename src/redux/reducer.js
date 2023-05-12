@@ -1,44 +1,30 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./actions/types";
+import { ADD_FAV, REMOVE_FAV } from "./types"
+
 
 const initialState = {
-  myFavorites: [],
-  allCharacters: [],
-};
+    myFavorites: []
+}
 
-const rootReducer = (state = initialState, { type, payload }) => {
-  
-  switch (type) {
-    case ADD_FAV:
-      return {
-        ...state,
-        myFavorites: [...state.allCharacters, payload],
-        allCharacters: [...state.allCharacters, payload], 
-      };
-    case REMOVE_FAV:
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter((ch) => ch.id !== payload)
-      };
-    case FILTER:
-      const allCharactersFiltered = state.allCharacters.filter((ch) => ch.gender === payload)
-      return {
-        ...state,
-        myFavorites: 
-        payload === "allCharacters"
-        ? [...state.allCharacters]
-        : allCharactersFiltered,
-      };
-    case ORDER:
-      const allCharactersCopy = [...state.allCharacters]
-      return {
-        ...state,
-        myFavorites: payload === "A" 
-        ? allCharactersCopy.sort((a, b) => a.id - b.id) 
-        : allCharactersCopy.sort((a, b) => b.id - a.id)
-      }
-    default:
-      return state;
-  }
-};
+const reducer = ( state = initialState, action) => {
+    switch(action.type){
+        case ADD_FAV:
+            return {
+                ...state,
+                myFavorites: [...state.myFavorites, action.payload]
+            }
 
-export default rootReducer;
+        case REMOVE_FAV:
+            let deleteCharacter = state.myFavorites.filter(character => character.id !== Number(action.payload))
+            return{
+                ...state,
+                myFavorites: deleteCharacter
+            }
+            
+        default:
+            return {
+                ...state
+            }
+    }
+}
+
+export default reducer

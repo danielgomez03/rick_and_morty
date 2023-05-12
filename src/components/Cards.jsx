@@ -3,11 +3,10 @@ import style from "../styles/Cards.module.css"
 import Card from "./Card";
 import SearchBar from "./SearchBar";
 
-export default function Cards({onClose,characters, onSearch}) {
+export default function Cards({onClose, characters, onSearch}) {
    return(
-      <div>
-            <SearchBar  onSearch={onSearch} />
-         <div className={style.cards}>
+
+      <div className={style.cards}>
             {characters.map((character,index) => {
             return( 
                <Card key={character.id} 
@@ -21,6 +20,6 @@ export default function Cards({onClose,characters, onSearch}) {
                onClose={(onClose)}/>
          )})}
       </div>
-      </div>
+
    );
    }

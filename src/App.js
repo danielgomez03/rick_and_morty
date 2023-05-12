@@ -62,15 +62,15 @@ function App() {
 
 
    return (
-      <div className='App'>
+      <div className='container'>
 
-            {location.pathname === "/" ? null: <Nav logout={logout}/> }
+            {location.pathname === "/" ? null: <Nav logout={logout} onSearch={onSearch}/> }
 
          <Routes>
 
             <Route path='/' element= {<Form login={login}/>}></Route>
 
-            <Route path="/home" element={<Cards onClose={onClose} onSearch={onSearch} characters={characters}></Cards>}> </Route> 
+            <Route path="/home" element={<Cards onClose={onClose}  characters={characters}></Cards>}> </Route> 
 
             <Route path="/about" element={<About/>}> </Route>
 

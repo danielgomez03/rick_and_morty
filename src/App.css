@@ -1,1 +1,11 @@
+body{
+    background-image: url("./assets/wallhaven-pkvkoe_1920x1080.png");
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
 
+@media (min-width: 200px) and (max-width: 13px){
+    body{
+        background-size: cover;
+    }
+}

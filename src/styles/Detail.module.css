@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img{
+    width: 100%;
+    margin: 40px;
+    padding: 0;
+}
+
+.imgContainer{
+    width: 30%
+}
+
+.detailsContainer{
+    margin-left: 5%;
+    background-color: gray;
+    width: 17%;
+    margin: 40px;
+}

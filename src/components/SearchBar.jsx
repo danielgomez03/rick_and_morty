@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "../styles/SearchBar.module.css"
+import lupa from "../assets/lupa.png"
 
 
 const SearchBar = ({onSearch}) => {
@@ -12,9 +13,10 @@ const SearchBar = ({onSearch}) => {
 
    return (
       <div className={style.searchBar}>
-
-         <input onChange={handleChange} type='search' />
-         <button onClick={()=>onSearch(id)}>put in</button>
+         <input onChange={handleChange} type='search' className={style.input} placeholder="Look for a Character"/>
+            <button onClick={()=>onSearch(id)} className={style.btnInput}>
+            <img src={lupa} className={style.lupa} alt={"paila"} />
+            </button>
       </div>
    );
 }

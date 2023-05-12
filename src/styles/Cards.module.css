@@ -1,10 +1,11 @@
-body{
-    background-image: url("../assets/wallhaven-0w7vgr_1920x1080.png");
-}
-
-
 .cards{
     display: flex;
-    background-color: bisque;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (min-width:400px) and (max-width: 700px){
+    .cards{
+        justify-content: center;
+    }
 }

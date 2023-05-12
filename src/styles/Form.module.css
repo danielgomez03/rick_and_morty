@@ -1,8 +1,3 @@
-body{
-    background-image: url("../assets/wallhaven-pkvkoe_1920x1080.png");
-    background-size: cover;
-}
-
 .form{
     width: 20%;
     height: 65vh;
@@ -67,7 +62,7 @@ button{
 }
 
 button:hover{
-    background-color: rgb(21, 2, 37);
+    background-color: rgb(5, 68, 15);
     color:  rgb(145, 95, 185);
 }
 

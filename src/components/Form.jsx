@@ -57,6 +57,7 @@ const Form = ({login}) => {
       }
 
     return(
+      <div className={style.bckgrn}>
         <div className={style.container}>
             <form className={style.form} onSubmit={handleSubmit}>
               <div className={style.img_container}>
@@ -75,6 +76,7 @@ const Form = ({login}) => {
                 </div>
       
             </form>
+        </div>
         </div>
     );
 };

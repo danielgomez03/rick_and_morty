@@ -19,14 +19,20 @@ const Detail = () => {
    }, [id]);
 
    return (
-      <div>
+      <div className={style.container}>
+         <div className={style.imgContainer}>
+            <img className={style.img} src={character.image} alt={character.name} />
+         </div>
+         <div className={style.detailsContainer}>
          <h1>Detail</h1>
          <h2>NAME ||{character.name}</h2>
          <h2>STATUS ||{character.status}</h2>
          <h2>SPECIES ||{character.species}</h2>
          <h2>GENDER ||{character.gender}</h2>
          <h2>ORIGIN ||{character.origin?.name}</h2>
-         <img src={character.image} alt={character.name} />
+         </div>
+
+         
 
       </div>
       );
