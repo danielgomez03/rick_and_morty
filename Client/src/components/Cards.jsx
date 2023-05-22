@@ -1,9 +1,8 @@
 import React from "react";
 import style from "../styles/Cards.module.css"
 import Card from "./Card";
-import SearchBar from "./SearchBar";
 
-export default function Cards({onClose, characters, onSearch}) {
+export default function Cards({onClose, characters}) {
    return(
 
       <div className={style.cards}>

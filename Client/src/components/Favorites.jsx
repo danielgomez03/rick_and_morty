@@ -5,18 +5,13 @@ import { removeFav, orderCards, filterCards } from "../redux/actions";
 import { useState } from "react";
 
 
-const Favorites = ({ onClose }) => {
+const Favorites = () => {
   
   const {myFavorites} = useSelector((state) => state)
   
   const dispatch = useDispatch();
   
   const [aux, setAux] = useState(false);
-
-  function closeFavorite(id) {
-    onClose(id);
-    dispatch(removeFav(id));
-  };
 
   const handleOrder = (e) => {
     e.preventDefault();
@@ -61,7 +56,6 @@ const Favorites = ({ onClose }) => {
               gender={element.gender}
               origin={element.origin.name}
               image={element.image}
-              onClose={() => closeFavorite(element.id)}
             ></Card>
           );
         })}

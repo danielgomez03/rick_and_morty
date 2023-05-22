@@ -9,19 +9,17 @@ const initialState = {
 const reducer = ( state = initialState, action) => {
     switch(action.type){
         case ADD_FAV:
-            let copyAllCharacters = [...state.allCharacters, action.payload];
-            return {
+            case 'ADD_FAV':
+            return { 
                 ...state,
-                myFavorites: copyAllCharacters,
-                allCharacters: [...copyAllCharacters]
-            }
+                myFavorites: action.payload, 
+                allCharacters: action.payload };
 
         case REMOVE_FAV:
-            let deleteCharacter = state.myFavorites.filter(character => character.id !== Number(action.payload))
-            return{
-                ...state,
-                myFavorites: deleteCharacter
-            }
+                return { 
+                    ...state, 
+                    myFavorites: action.payload 
+                    };
 
         case FILTER:
             let copyFilter = state.allCharacters.filter((character) => character.gender === action.payload)
@@ -29,16 +27,6 @@ const reducer = ( state = initialState, action) => {
                 ...state,
                 myFavorites: copyFilter
             }
-
-        // case FILTER: 
-        // let copyFilter = state.allCharacters.filter((character) => character.gender === action.payload)
-        // return {
-        //     ...state,
-        //     myFavorites: 
-        //     action.payload === "allcharacters"
-        //     ? [...state.allCharacters]
-        //     : copyFilter
-        // }
 
         case ORDER:
             const orderCharacters = state.allCharacters.sort((a, b)=>{
@@ -65,3 +53,20 @@ const reducer = ( state = initialState, action) => {
 }
 
 export default reducer
+
+
+
+
+
+
+
+
+        // case FILTER: 
+        // let copyFilter = state.allCharacters.filter((character) => character.gender === action.payload)
+        // return {
+        //     ...state,
+        //     myFavorites: 
+        //     action.payload === "allcharacters"
+        //     ? [...state.allCharacters]
+        //     : copyFilter
+        // }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import style from "../styles/Nav.module.css"
 import title from "../assets/toppng.com-rick-and-morty-logo-art-of-rick-and-morty-by-justin-roiland-801x295.png"
 import menuIcon from "../assets/icoBtnDropMenu.png"
@@ -11,6 +11,8 @@ import SearchBar from "./SearchBar";
 const Nav = ({ logout, onSearch }) => {
 
   const [open, setOpen] = useState(false);
+
+  const { pathname }  = useLocation()
 
   const handleClick = () => {
     setOpen(!open);
@@ -26,8 +28,10 @@ const Nav = ({ logout, onSearch }) => {
           <img src={title} className={style.logo} alt={"Rick&Morty"} />
         </div>
 
-
-        <SearchBar  onSearch={onSearch} />
+      {   
+        pathname.includes("/home") &&
+          <SearchBar onSearch={onSearch} />
+      } 
 
 
       <div className={style.dropdown}>

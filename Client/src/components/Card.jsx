@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../styles/Card.module.css"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../redux/actions"
@@ -9,6 +9,8 @@ import { addFav, removeFav } from "../redux/actions"
 const Card = (props) => {
 
    const {id, name, gender, species, origin, image, status, onClose, addFav, removeFav, myFavorites} = props
+
+   const { pathname } = useLocation()
 
    const [isFav, setIsFav] = useState(false);
 
@@ -20,9 +22,17 @@ const Card = (props) => {
       });
    }, [myFavorites]);
 
-   const handleFavorite = () => {
-      isFav ? removeFav(id) : addFav(props);
-      setIsFav(!isFav)
+   const handleFavorite =() => {
+      // isFav ? removeFav(id) : addFav(props);
+      // setIsFav(!isFav)
+      if(isFav) {
+         setIsFav(false)
+         removeFav(id)
+      }
+      else {
+         setIsFav(true)
+         addFav(props)
+      }
    }
 
    return (
@@ -46,7 +56,15 @@ const Card = (props) => {
                <h2>{props.species}</h2>
                <h2>{props.gender}</h2>
                <h2>{props.status}</h2>
-               <button className={style.btn} onClick={() => props.onClose(props.id)}>X</button>
+               {
+                  !pathname.includes('/favorites') &&
+                  <button 
+                     className={style.btn}
+                     onClick={()=> onClose(id)}
+                  >
+                        X
+                  </button>
+               }
             </div>
          </div>
       </div>
